@@ -5,5 +5,5 @@ const msg = getNotes()
 console.log(msg)
 
 console.log(chalk.green('Monty\'s money is green'))
-console.log(chalk.blue.inverse.bold('Homer loves Spider Pig'))
+console.log(chalk.red.inverse.bold('Homer loves Spider Pig'))
 
