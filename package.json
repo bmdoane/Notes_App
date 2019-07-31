@@ -1,0 +1,24 @@
+{
+  "name": "NotesApp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bmdoane/Notes_App.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bmdoane/Notes_App/issues"
+  },
+  "homepage": "https://github.com/bmdoane/Notes_App#readme",
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "validator": "^10.8.0"
+  }
+}
