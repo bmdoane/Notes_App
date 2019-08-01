@@ -1,9 +1,74 @@
-const chalk = require('chalk')
-const getNotes = require('./notes.js')
+const yargs = require('yargs')
+const notes = require('./notes.js')
 
-const msg = getNotes()
-console.log(msg)
+// Customize yargs version
+yargs.version('1.1.0')
 
-console.log(chalk.green('Monty\'s money is green'))
-console.log(chalk.red.inverse.bold('Homer loves Spider Pig'))
+// node app.js --help to see commands
+// Create add command
+yargs.command({
+  command: 'add',
+  describe: 'Add a new note',
+  builder: {
+    title: {
+      describe: 'Note title',
+      demandOption: true,
+      type: 'string'
+    },
+    body: {
+      describe: 'Note body',
+      demandOption: true,
+      type: 'string'
+    }
+  },
+  // On methods in objs, no arrow functions
+  handler(argv) {
+    notes.addNote(argv.title, argv.body)
+  }
+})
+
+// Create remove command
+yargs.command({
+  command: 'remove',
+  describe: 'Remove a note',
+  builder: {
+    title: {
+      describe: 'Note title',
+      demandOption: true,
+      type: 'string'
+    }
+  },
+  handler(argv) {
+    notes.removeNote(argv.title)
+  }
+})
+
+// Create list command
+yargs.command({
+  command: 'list',
+  describe: 'List notes',
+  handler() {
+    notes.listNotes()
+  }
+})
+
+// Create read command
+yargs.command({
+  command: 'read',
+  describe: 'Read a note',
+  builder: {
+    title: {
+      describe: 'Note title',
+      demandOption: true,
+      type: 'string'
+    }
+  },
+  handler(argv) {
+    notes.readNote(argv.title)
+  }
+})
+
+
+// add, remove, list, read
+yargs.parse()
 
