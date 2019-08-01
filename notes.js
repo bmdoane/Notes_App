@@ -8,9 +8,7 @@ const getNotes = () => {
 const addNote = (title, body) => {
   // Load data
   const notes = loadNotes()
-  const dupeNotes = notes.filter((note) => {
-    return note.title === title
-  })
+  const dupeNotes = notes.filter(note => note.title === title)
 
   if (dupeNotes.length === 0) {
     // Add data to array
@@ -30,9 +28,7 @@ const removeNote = (title) => {
   // Load data
   const notes = loadNotes()
   // Remove note
-  const notesToKeep = notes.filter((note) => {
-    return note.title !== title
-  })
+  const notesToKeep = notes.filter(note => note.title !== title)
   notes.length === notesToKeep.length ? console.log(chalk.bgRed(' No note found ')) : console.log(chalk.bgGreen(' Note removed! '))
   saveNotes(notesToKeep)
 }
